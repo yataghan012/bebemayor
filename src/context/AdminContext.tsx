@@ -23,6 +23,8 @@ export interface AdminClient {
   cuit: string;
   tipo: string;
   provincia: string;
+  email: string;
+  telefono: string;
   fechaRegistro: string;
   estado: "Activo" | "Suspendido" | "Pendiente";
 }
@@ -98,11 +100,11 @@ const defaultCategories: AdminCategory[] = [
 ];
 
 const defaultClients: AdminClient[] = [
-  { id: "C001", negocio: "Farmacia del Sol", responsable: "Carlos Pérez", cuit: "20123456789", tipo: "Farmacia", provincia: "Buenos Aires", fechaRegistro: "2023-11-10", estado: "Activo" },
-  { id: "C002", negocio: "Pañalera BabyBoom", responsable: "Ana Gómez", cuit: "27876543219", tipo: "Pañalera", provincia: "Córdoba", fechaRegistro: "2023-12-05", estado: "Activo" },
-  { id: "C003", negocio: "Kiosco Carlitos", responsable: "Juan Rodríguez", cuit: "20345678901", tipo: "Kiosco", provincia: "Santa Fe", fechaRegistro: "2024-01-15", estado: "Pendiente" },
-  { id: "C004", negocio: "Farmacias Norte", responsable: "Luis Sánchez", cuit: "30112233445", tipo: "Farmacia", provincia: "Salta", fechaRegistro: "2024-02-20", estado: "Suspendido" },
-  { id: "C005", negocio: "Almacén Los Abuelos", responsable: "Rosa Martínez", cuit: "27554433221", tipo: "Almacén", provincia: "Mendoza", fechaRegistro: "2024-03-01", estado: "Activo" },
+  { id: "C001", negocio: "Farmacia del Sol", responsable: "Carlos Pérez", cuit: "20123456789", tipo: "Farmacia", provincia: "Buenos Aires", email: "carlos@farmaciasol.com", telefono: "1144556677", fechaRegistro: "2023-11-10", estado: "Activo" },
+  { id: "C002", negocio: "Pañalera BabyBoom", responsable: "Ana Gómez", cuit: "27876543219", tipo: "Pañalera", provincia: "Córdoba", email: "ana@babyboom.com.ar", telefono: "3513344556", fechaRegistro: "2023-12-05", estado: "Activo" },
+  { id: "C003", negocio: "Kiosco Carlitos", responsable: "Juan Rodríguez", cuit: "20345678901", tipo: "Kiosco", provincia: "Santa Fe", email: "juan@kioscocalitos.com", telefono: "3415566778", fechaRegistro: "2024-01-15", estado: "Pendiente" },
+  { id: "C004", negocio: "Farmacias Norte", responsable: "Luis Sánchez", cuit: "30112233445", tipo: "Farmacia", provincia: "Salta", email: "luis@fnorte.com", telefono: "3874455667", fechaRegistro: "2024-02-20", estado: "Suspendido" },
+  { id: "C005", negocio: "Almacén Los Abuelos", responsable: "Rosa Martínez", cuit: "27554433221", tipo: "Almacén", provincia: "Mendoza", email: "rosa@losabuelos.com", telefono: "2612233445", fechaRegistro: "2024-03-01", estado: "Activo" },
   // ... more could be added
 ];
 
@@ -116,7 +118,16 @@ const defaultOrders: AdminOrder[] = [
 
 for(let i = 0; i < 10; i++){
   defaultClients.push({
-    id: `C00${6+i}`, negocio: `Cliente ${i+6}`, responsable: `Responsable ${i+6}`, cuit: `2000000000${i}`, tipo: ["Farmacia", "Pañalera", "Kiosco"][i%3], provincia: ["CABA", "Buenos Aires", "Córdoba", "Santa Fe"][i%4], fechaRegistro: "2024-04-01", estado: "Activo"
+    id: `C00${6+i}`, 
+    negocio: `Cliente ${i+6}`, 
+    responsable: `Responsable ${i+6}`, 
+    cuit: `2000000000${i}`, 
+    tipo: ["Farmacia", "Pañalera", "Kiosco"][i%3], 
+    provincia: ["CABA", "Buenos Aires", "Córdoba", "Santa Fe"][i%4], 
+    email: `cliente${i+6}@example.com`,
+    telefono: `11${4000000 + i}`,
+    fechaRegistro: "2024-04-01", 
+    estado: "Activo"
   });
   defaultOrders.push({
     id: `BM-2024-100${6+i}`, cliente: `Cliente ${6+i}`, negocio: `Negocio ${6+i}`, cuit: `20...`, provincia: "CABA", montoTotal: 10000 * (i+1), metodoPago: "Transferencia", estado: ["Pendiente", "Confirmado", "Enviado"][i%3] as any, fecha: "2024-04-28T12:00:00Z", items: []

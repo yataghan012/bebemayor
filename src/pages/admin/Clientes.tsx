@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAdmin, AdminClient } from "../../context/AdminContext";
-import { Search, X, CheckCircle2, AlertCircle } from "lucide-react";
+import { Search, X, CheckCircle2, AlertCircle, Mail, Phone, ExternalLink } from "lucide-react";
 import { Button } from "../../components/ui/Button";
 
 function ClientDrawer({ client, onClose, onUpdateStatus }: any) {
@@ -37,16 +37,36 @@ function ClientDrawer({ client, onClose, onUpdateStatus }: any) {
         <div className="flex-1 overflow-y-auto p-6 space-y-8">
           
           <section className="space-y-4">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Información de Registro</h3>
+            <div className="flex justify-between items-center">
+              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Información de Registro</h3>
+            </div>
+            
             <div className="grid grid-cols-2 gap-4 text-sm">
-              <div>
+              <div className="col-span-2 sm:col-span-1">
                 <span className="block text-slate-500 mb-1">Responsable</span>
                 <span className="font-bold text-slate-900">{client.responsable}</span>
               </div>
-              <div>
+              <div className="col-span-2 sm:col-span-1">
                 <span className="block text-slate-500 mb-1">CUIT</span>
                 <span className="font-mono font-bold text-slate-900">{client.cuit}</span>
               </div>
+              
+              <div className="col-span-2">
+                <span className="block text-slate-500 mb-1">Email</span>
+                <a href={`mailto:${client.email}`} className="font-bold text-brand-blue hover:underline flex items-center gap-1.5">
+                  <Mail className="w-3.5 h-3.5" />
+                  {client.email}
+                </a>
+              </div>
+
+              <div className="col-span-2">
+                <span className="block text-slate-500 mb-1">Teléfono / WhatsApp</span>
+                <a href={`https://wa.me/${client.telefono.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" className="font-bold text-green-600 hover:underline flex items-center gap-1.5">
+                  <Phone className="w-3.5 h-3.5" />
+                  {client.telefono}
+                </a>
+              </div>
+
               <div>
                 <span className="block text-slate-500 mb-1">Tipo de Negocio</span>
                 <span className="font-bold text-slate-900">{client.tipo}</span>

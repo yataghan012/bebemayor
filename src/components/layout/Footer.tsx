@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Users2, MapPin, Mail, Phone } from "lucide-react";
+import { getAssetPath } from "../../lib/utils";
 
 export function Footer() {
   return (
@@ -21,7 +22,7 @@ export function Footer() {
               Impulsando el crecimiento de farmacias, pañaleras y comercios en toda la Argentina.
             </p>
             <div className="flex gap-4">
-              <img src="/regenerated_image_1777425222751.png" alt="Mercado Pago" className="h-8 object-contain bg-white rounded px-2" />
+              <img src={getAssetPath("/regenerated_image_1777425222751.png")} alt="Mercado Pago" className="h-8 object-contain bg-white rounded px-2" />
               <div className="h-8 px-2 bg-white rounded flex items-center justify-center text-xs font-bold text-slate-800">Transferencia</div>
             </div>
           </div>

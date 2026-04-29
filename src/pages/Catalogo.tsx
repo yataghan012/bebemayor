@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { PRODUCTS, CATEGORIES } from "../data/products";
 import { useCart } from "../context/CartContext";
-import { formatPrice, cn } from "../lib/utils";
+import { formatPrice, cn, getAssetPath } from "../lib/utils";
 import { Button } from "../components/ui/Button";
 import { ShoppingCart, LayoutGrid, Package, ChevronDown } from "lucide-react";
 
@@ -123,7 +123,7 @@ export function Catalogo() {
                       MAYORISTA
                     </span>
                     <img 
-                      src={product.imageUrl} 
+                      src={getAssetPath(product.imageUrl)} 
                       alt={product.name}
                       className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
                     />

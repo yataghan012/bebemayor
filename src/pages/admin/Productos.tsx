@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAdmin } from "../../context/AdminContext";
-import { formatPrice } from "../../lib/utils";
+import { formatPrice, getAssetPath } from "../../lib/utils";
 import { Plus, Search, Edit2, Trash2, X } from "lucide-react";
 import { Button } from "../../components/ui/Button";
 
@@ -191,7 +191,7 @@ export function Productos() {
                 return (
                   <tr key={p.id} className="hover:bg-slate-50 transition-colors group">
                     <td className="p-4 w-20">
-                      <img src={p.imageUrl} alt={p.name} className="w-12 h-12 rounded object-cover border border-slate-200" />
+                      <img src={getAssetPath(p.imageUrl)} alt={p.name} className="w-12 h-12 rounded object-cover border border-slate-200" />
                     </td>
                     <td className="p-4">
                       <div className="font-bold text-slate-900 line-clamp-1">{p.name}</div>

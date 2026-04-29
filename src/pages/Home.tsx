@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/ui/Button";
 import { ArrowRight, Box, TrendingDown, Truck, ShieldCheck, CheckCircle2, ChevronRight, Users2 } from "lucide-react";
 import { CATEGORIES } from "../data/products";
+import { getAssetPath } from "../lib/utils";
 
 export function Home() {
   return (
@@ -47,7 +48,7 @@ export function Home() {
                   -30%
                 </div>
                 <img 
-                  src="/pañales.webp" 
+                  src={getAssetPath("/pañales.webp")} 
                   alt="Pallets de pañales directo de fábrica" 
                   className="rounded-xl object-cover h-[400px] w-full"
                 />
@@ -106,13 +107,13 @@ export function Home() {
               <Link key={cat} to={`/catalogo?categoria=${cat}`} className="group block relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all border border-slate-100">
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-brand-blue/40 to-transparent z-10"></div>
                 <img 
-                  src={[
+                  src={getAssetPath([
                     "/regenerated_image_1777425120116.png", // panales
                     "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&auto=format&fit=crop&q=80", // leche
                     "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600&auto=format&fit=crop&q=80", // ropa
                     "/regenerated_image_1777425121116.png", // higiene
                     "/regenerated_image_1777425121876.png"  // accesorios
-                  ][i] || "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&auto=format&fit=crop&q=80"} 
+                  ][i] || "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600&auto=format&fit=crop&q=80")} 
                   alt={cat} 
                   className="h-64 w-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />

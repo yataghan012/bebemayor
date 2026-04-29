@@ -1,6 +1,6 @@
 import { X, ShoppingBag, ArrowRight, Trash2 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
-import { formatPrice } from "../../lib/utils";
+import { formatPrice, getAssetPath } from "../../lib/utils";
 import { Button } from "../ui/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -77,7 +77,7 @@ export function CartDrawer() {
                   <li key={item.product.id} className="flex py-2 border-b border-slate-100 pb-6">
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-slate-200">
                       <img
-                        src={item.product.imageUrl}
+                        src={getAssetPath(item.product.imageUrl)}
                         alt={item.product.name}
                         className="h-full w-full object-cover object-center"
                       />

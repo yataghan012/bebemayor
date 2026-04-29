@@ -1,4 +1,5 @@
 import { Building2, TrendingUp, Handshake, Truck } from "lucide-react";
+import { getAssetPath } from "../lib/utils";
 
 export function Nosotros() {
   return (
@@ -20,7 +21,7 @@ export function Nosotros() {
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-slate-200">
           <div className="md:w-1/2">
             <img 
-              src="/regenerated_image_1777459476009.png" 
+              src={getAssetPath("/regenerated_image_1777459476009.png")} 
               alt="Centro Logístico BebéMayor" 
               className="h-full w-full object-cover"
             />

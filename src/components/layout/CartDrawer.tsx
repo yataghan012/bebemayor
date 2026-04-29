@@ -2,8 +2,10 @@ import { X, ShoppingBag, ArrowRight, Trash2 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 import { formatPrice } from "../../lib/utils";
 import { Button } from "../ui/Button";
+import { useNavigate } from "react-router-dom";
 
 export function CartDrawer() {
+  const navigate = useNavigate();
   const { 
     items, 
     isCartOpen, 
@@ -136,10 +138,13 @@ export function CartDrawer() {
                 size="lg" 
                 className="w-full flex items-center justify-center gap-2"
                 disabled={!minOrderReached}
-                onClick={() => alert("Simulación: Pasando al checkout B2B...")}
+                onClick={() => {
+                  setIsCartOpen(false);
+                  navigate('/checkout');
+                }}
               >
                 {minOrderReached ? (
-                  <>Comenzar Checkout <ArrowRight className="h-5 w-5" /></>
+                  <>Ir al checkout <ArrowRight className="h-5 w-5" /></>
                 ) : (
                   <>No alcanzas el mínimo de compra</>
                 )}

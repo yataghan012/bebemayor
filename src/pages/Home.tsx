@@ -17,7 +17,7 @@ export function Home() {
                 Exclusivo Mayoristas y Comercios
               </span>
               <h1 className="text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl mb-6">
-                Multiplicá tus <span className="text-brand-accent">ganancias</span> en cada venta.
+                Multiplicá tus <span className="text-brand-accent">ganancias</span> en cada venta
               </h1>
               <p className="text-lg leading-8 text-slate-300 mb-8 font-medium">
                 Pañales descartables primera marca desde <strong className="text-white">$5.200</strong> la unidad. Abastecemos farmacias, pañaleras y kioscos en toda la Argentina con los mejores márgenes del mercado.
